@@ -4,31 +4,28 @@ const Group = require('./models/groups');
 exports.test = {
   model: () => {
     console.log('model test');
-
+    
     Company.findOne({ name: 'test' })
-    	.then((cp) => {
-    		if(!cp) throw new Error('Company does not exist.');
-    		console.log(cp);
-    		const gr = new Group({
-    			name: 'group2',
-    			cp_id: cp._id,
-    		});
-    		return gr.save();
-    	})
-    	.then((gr) => {
-    		console.log(gr);
-    		return Company.findOneAndUpdate(
-    			{ _id:gr.cp_id },
-    			{ $addToSet: {gr_ids : gr._id }},
-    			{ new :true })
-    			.populate('gr_ids');
-
-    	})
-        .then((r) => {
-        	console.log(r);
-        })
-        .catch(err => console.error(err));
-    },
+      .then((cp) => {
+        if (!cp) throw new Error('company does not exist!');
+        const gr = new Group({
+          name: 'group2',
+          cp_id: cp._id,
+        });
+        return gr.save();
+      })
+      .then((gr) => {
+        return Company.findOneAndUpdate(
+          { _id: gr.cp_id }, 
+          { $addToSet: { gr_ids : gr._id }}, 
+          { new: true })
+          .populate('gr_ids');
+      })
+      .then((r) => {
+        console.log(r);
+      })
+      .catch(err => console.error(err));
+  },
 };
 
 /* read test result

@@ -4,8 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const cfg = require('./cfg/cfg');
+const pg = require('./playGround')
+
+if(!cfg){
+  console.error('./cfg/cfg.js file does not exist');
+  process.exit(1);
+}
 
 var app = express();
+
+if(cfg.web.cors) app.use(require('cors')());
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
@@ -38,24 +48,16 @@ app.use(function(err, req, res, next) {
   res.send({ success: false, msg: err.message });
 });
 
-const mongoose = require('mongoose');
-const cfg = require('./cfg/cfg');
-
-if(!cfg){
-  console.error('./cfg/cfg.js file does not exist');
-  process.exit(1);
-}
-
-//const pg = require('./playGround');
-
 //{ useNewUrlParser: true }
-mongoose.connect(cfg.db.url, { useNewUrlParser: true }, (err) => {
+mongoose.connect(cfg.db.url, (err) => {
   if (err) return console.error(err);
   console.log('mongoose connected');
-  //pg.test.model();
+  //pg.test.model(); // test(playGround)
 });
 
 
 module.exports = app;
+
+
 
 

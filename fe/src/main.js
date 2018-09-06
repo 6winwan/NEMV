@@ -4,11 +4,14 @@ import Vue from 'vue';
 import BootstrapVue from "bootstrap-vue";
 import App from './App';
 import router from './router';
+import axios from 'axios'; // add
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+Vue.prototype.$axios = axios; // add
 Vue.use(BootstrapVue);
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;
 
 /* eslint-disable no-new */
 new Vue({

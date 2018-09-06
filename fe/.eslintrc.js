@@ -37,3 +37,17 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
 }
+/*
+module.exports = {
+  extends: 'google',
+  quotes: [2, 'single'],
+  globals: {
+    SwaggerEditor: false
+  },
+  env: {
+    browser: true
+  },
+  rules:{
+    "linebreak-style": 0
+  }
+};*/
