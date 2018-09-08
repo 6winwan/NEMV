@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import BootstrapVue from "bootstrap-vue";
-import App from './App';
+import app from './app';
 import router from './router';
 import axios from 'axios'; // add
 
@@ -17,6 +17,6 @@ Vue.config.productionTip = true;
 new Vue({
   el: '#app',
   router,
-  template: '<App/>',
-  components: { App },
+  template: '<app/>',
+  components: { app },
 });
