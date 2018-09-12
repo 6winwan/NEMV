@@ -27,6 +27,11 @@
               hello-vue
             </topItem>
           </b-nav-item-dropdown>
+          <b-nav-item-dropdown text="Board">
+            <topItem link="talk" icon="sss">
+              Chat
+            </topItem>
+          </b-nav-item-dropdown>
           <b-nav-item href="#" disabled>Comming soon</b-nav-item>
         </b-navbar-nav>
 
