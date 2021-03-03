@@ -16,7 +16,7 @@
     "moment": "^2.22.2",
     "mongoose": "^5.2.12",
     "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11",
+    "pug": "3.0.1",
     "serve-favicon": "^2.5.0",
     "sweetalert": "^2.1.0",
     "vue-awesome": "^3.1.2",
