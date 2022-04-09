@@ -19,7 +19,7 @@
     "bootstrap-vue": "latest",
     "eslint-config-google": "^0.9.1",
     "fontawesome-markers": "^4.6.1",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "popper.js": "^1.12.9",
     "sweetalert": "^2.1.0",
     "vue": "^2.5.2",
